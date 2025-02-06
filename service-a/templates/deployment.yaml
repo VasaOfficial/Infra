@@ -4,6 +4,7 @@ metadata:
   name: {{ include "service-a.fullname" . }}
   labels:
     {{- include "service-a.labels" . | nindent 4 }}
+  namespace: default
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
